@@ -20,12 +20,12 @@
                     <div class="form-group">
                         <input type="password" placeholder="Password" name="password">
                     </div>
-{{--                    <div class="form-group">--}}
-{{--                        <select>--}}
-{{--                            <option>Boy</option>--}}
-{{--                            <option>Girls</option>--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
+                    <div class="form-group">
+                        <select class="menu" type="text" name="gender">
+                            <option>Boy</option>
+                            <option>Girl</option>
+                        </select>
+                    </div>
 {{--                    <div class="form-group">--}}
 {{--                        <input type="text" placeholder="Gender" name="gender">--}}
 {{--                    </div>--}}
@@ -33,7 +33,20 @@
                         <input type="number" placeholder="Age" name="age">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Zodiac" name="zodiac">
+                        <select class="menu" type="text" name="zodiac">
+                            <option>Aries</option>
+                            <option>Taurus</option>
+                            <option>Twins</option>
+                            <option>Cancer</option>
+                            <option>Leo</option>
+                            <option>Vigro</option>
+                            <option>Libra</option>
+                            <option>Scorpio</option>
+                            <option>Sagittarius</option>
+                            <option>Capricorn</option>
+                            <option>Aquarius</option>
+                            <option>Pisces</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" placeholder="About you" name="description">

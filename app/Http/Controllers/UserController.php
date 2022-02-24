@@ -11,11 +11,6 @@ use App\Models\Product;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        return  view('turulav.signup');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -36,23 +31,27 @@ class UserController extends Controller
     {
         $email = $request->input('email');
         $name = $request->input('name');
-        $password = $request->input('password');
+        //$password = $request->input('password');
+        $passwordHash = password_hash($request->input('password'),PASSWORD_BCRYPT);
+        //PASSWORD_BCRYPT
+        $zodiac = $request->input('zodiac');
         $gender = $request->input('gender');
         $age = $request->input('age');
         $description = $request->input('description');
         $looking_for = $request->input('looking_for');
 
-        $data = [$email, $name, $password, $gender, $age, $description, $looking_for];
-//        $file->storeAs('newfolder', "{$name}.jpg", 'public');
-//        $img = "{$name}.jpg";
-        //dd(\Storage::url->putFileAs('ololo', $file, '656.jpg'));
-//        dd($file->getContent());
-//        //$brand = Brand::create($request->all());
-//        return  redirect(route('admin.product.index'));
-        //$fileUrl = Storage::url('product/images/'.$request->name.'.'.$img->getClientOriginalExtension());
-        User::create($request->all());
+        $data = [
+            'name' => $name,
+            'email' => $email,
+            'password' => $passwordHash,
+            'gender' => $gender,
+            'age' => $age,
+            'zodiac' => $zodiac,
+            'description' => $description,
+            'looking_for' => $looking_for
+        ];
+        User::create($data);
         dump($request->all());
-        //dump($request->all(), realpath($file), $name);
     }
 
     /**
