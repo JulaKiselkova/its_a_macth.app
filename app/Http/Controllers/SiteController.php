@@ -16,4 +16,12 @@ class SiteController extends Controller
     public function signupPage(){
         return  view('turulav.signup');
     }
+
+    public function membersPage(){
+        return  view('turulav.members');
+    }
+
+    public function successPage(){
+        return  view('turulav.success');
+    }
 }

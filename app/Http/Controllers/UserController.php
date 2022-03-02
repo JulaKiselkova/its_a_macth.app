@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -24,16 +25,14 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     //* @param  \Illuminate\Http\Request  $request
-     //* @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $email = $request->input('email');
         $name = $request->input('name');
-        //$password = $request->input('password');
         $passwordHash = password_hash($request->input('password'),PASSWORD_BCRYPT);
-        //PASSWORD_BCRYPT
         $zodiac = $request->input('zodiac');
         $gender = $request->input('gender');
         $age = $request->input('age');
@@ -51,7 +50,8 @@ class UserController extends Controller
             'looking_for' => $looking_for
         ];
         User::create($data);
-        dump($request->all());
+        return redirect(route('successPage'));
+        //dump($request->all());
     }
 
     /**

@@ -29,3 +29,5 @@ Route::post('/signup', [\App\Http\Controllers\UserController::class, 'store'])
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'mainPage'])->name('mainPage');
 Route::get('/login', [\App\Http\Controllers\SiteController::class, 'loginPage'])->name('loginPage');
 Route::get('/signup', [\App\Http\Controllers\SiteController::class, 'signupPage'])->name('signupPage');
+Route::get('/members', [\App\Http\Controllers\SiteController::class, 'membersPage']);
+Route::get('/success', [\App\Http\Controllers\SiteController::class, 'successPage'])->name('successPage');

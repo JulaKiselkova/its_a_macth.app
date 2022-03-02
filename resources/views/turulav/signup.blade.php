@@ -1,5 +1,6 @@
 @extends('turulav.layouts.index')
 @section('content')
+    @dump($errors)
     <!-- ==========Page Header Section Start Here========== -->
 
     <!-- ==========Page Header Section Ends Here========== -->
@@ -21,10 +22,12 @@
                         <input type="password" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
-                        <select class="menu" type="text" name="gender">
+                        <div class="custom-select">
+                        <select class="custom-select" type="text" name="gender">
                             <option>Boy</option>
                             <option>Girl</option>
                         </select>
+                        </div>
                     </div>
 {{--                    <div class="form-group">--}}
 {{--                        <input type="text" placeholder="Gender" name="gender">--}}
@@ -32,8 +35,10 @@
                     <div class="form-group">
                         <input type="number" placeholder="Age" name="age">
                     </div>
-                    <div class="form-group">
-                        <select class="menu" type="text" name="zodiac">
+
+
+                    <div class="custom-select right w-100">
+                        <select class="custom-select" type="text" name="zodiac">
                             <option>Aries</option>
                             <option>Taurus</option>
                             <option>Twins</option>
@@ -48,15 +53,20 @@
                             <option>Pisces</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <input type="text" placeholder="About you" name="description">
                     </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Looking for" name="looking_for">
+
+                    <div class="custom-select right w-100">
+                        <select class="custom-select" type="text" name="looking_for">
+                            <option>Boy</option>
+                            <option>Girl</option>
+                        </select>
                     </div>
 {{--                    <div class="form-group">--}}
-{{--                        <input type="password" placeholder="Confirm Password" name="password">--}}
-{{--                    </div>--}}
+{{--                 <input type="password" placeholder="Confirm Password" name="password">--}}
+                    {{--                    </div>--}}
                     <div class="form-group">
                         <button type="submit" class="d-block lab-btn"><span>Get Started Now</span></button>
                     </div>
