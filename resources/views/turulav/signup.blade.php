@@ -22,6 +22,9 @@
                         <input type="password" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" name="passwordConfirm">
+                    </div>
+                    <div class="form-group">
                         <div class="custom-select">
                         <select class="custom-select" type="text" name="gender">
                             <option>Boy</option>
@@ -64,9 +67,10 @@
                             <option>Girl</option>
                         </select>
                     </div>
-{{--                    <div class="form-group">--}}
-{{--                 <input type="password" placeholder="Confirm Password" name="password">--}}
-                    {{--                    </div>--}}
+
+                    <div class="form-group">
+                        <input type="file" name="picture[]" multiple>
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="d-block lab-btn"><span>Get Started Now</span></button>
                     </div>

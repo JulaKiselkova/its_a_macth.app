@@ -5,9 +5,10 @@
         <div class=" container">
             <div class="account-wrapper">
                 <h3 class="title">Login</h3>
-                <form class="account-form">
+                <form action="\" class="account-form">
+                    @csrf
                     <div class="form-group">
-                        <input type="text" placeholder="User Name" name="username">
+                        <input type="text" placeholder="Email" name="email">
                     </div>
                     <div class="form-group">
                         <input type="password" placeholder="Password" name="password">

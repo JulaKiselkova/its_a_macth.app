@@ -87,8 +87,8 @@
                             <ul class="submenu">
                                 <li><a href="../members.html">All Members</a></li>
                                 <li><a href="../profile.html">Member Profile</a></li>
-                                <li><a href="../login.html">Login</a></li>
-                                <li><a href="../signup.html">Sign Up</a></li>
+                                <li><a href="{{route('loginPage')}}">Login</a></li>
+                                <li><a href="{{route('signupPage')}}">Sign Up</a></li>
                                 <li><a href="../pricing-plan.html">Pricing Plan</a></li>
                                 <li><a href="../404.html">404 Page</a></li>
 
@@ -106,8 +106,8 @@
                         </li>
                         <li><a href="../contact.html">Contact</a></li>
                     </ul>
-                    <a href="../login.html" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
-                    <a href="../signup.html" class="signup"><i class="icofont-users"></i> <span>SIGN UP</span> </a>
+                    <a href="{{route('loginPage')}}" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
+                    <a href="{{route('signupPage')}}" class="signup"><i class="icofont-users"></i> <span>SIGN UP</span> </a>
 
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">

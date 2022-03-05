@@ -39,7 +39,10 @@ class UserController extends Controller
         $description = $request->input('description');
         $looking_for = $request->input('looking_for');
 
-        $data = [
+        $password = $request->input('password');
+        $passwordConfirm = $request->input('passwordConfirm');
+
+        $dataUser = [
             'name' => $name,
             'email' => $email,
             'password' => $passwordHash,
@@ -49,8 +52,14 @@ class UserController extends Controller
             'description' => $description,
             'looking_for' => $looking_for
         ];
-        User::create($data);
-        return redirect(route('successPage'));
+        if($password == $passwordConfirm) {
+            User::create($dataUser);
+            print_r($_FILES['picture']);
+            $path = $_SERVER['DOCUMENT_ROOT'].'/storage/usersPictures/'.$_FILES['picture']['name'][1];
+            print_r($path);
+            //print_r($_SERVER['DOCUMENT_ROOT']);
+            //return redirect(route('successPage'));
+        }
         //dump($request->all());
     }
 
@@ -63,6 +72,10 @@ class UserController extends Controller
     public function show()
     {
         dump('show');
+    }
+
+    public function logIn() {
+        dd('hello');
     }
 
     /**

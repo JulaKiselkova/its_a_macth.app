@@ -24,7 +24,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'password'=>'min:5'
+            'password'=>'min:5',
+            //'age'=>'min:18'
         ];
     }
 
@@ -32,6 +33,7 @@ class UserRequest extends FormRequest
     {
         return [
             'password.min'=> 'Пароль не может быть менее 5 символов',
+            //'age.min'=> 'Тебе должно быть больше 18',
         ];
     }
 }
