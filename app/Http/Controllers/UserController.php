@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Models\UsersPicture;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Product;
 //use Illuminate\Http\Request;
+//NEW COMMMENT
 
 class UserController extends Controller
 {
@@ -16,6 +18,7 @@ class UserController extends Controller
      * Show the form for creating a new resource.
      *
      //* @return \Illuminate\Http\Response
+     * ertyuioklp[sdfrgtyuio
      */
     public function create()
     {
@@ -38,7 +41,6 @@ class UserController extends Controller
         $age = $request->input('age');
         $description = $request->input('description');
         $looking_for = $request->input('looking_for');
-
         $password = $request->input('password');
         $passwordConfirm = $request->input('passwordConfirm');
 
@@ -52,17 +54,37 @@ class UserController extends Controller
             'description' => $description,
             'looking_for' => $looking_for
         ];
-        if($password == $passwordConfirm) {
-            User::create($dataUser);
-            print_r($_FILES['picture']);
-            $path = $_SERVER['DOCUMENT_ROOT'].'/storage/usersPictures/'.$_FILES['picture']['name'][1];
-            print_r($path);
-            //print_r($_SERVER['DOCUMENT_ROOT']);
-            //return redirect(route('successPage'));
+        if($password == $passwordConfirm && $age>=18) {
+            $user = User::create($dataUser);
+            $id = $user->id;
+            $this->addFiles($id, $user);
+            return redirect(route('successPage'));
         }
-        //dump($request->all());
     }
 
+    public function addFiles($id, User $user) {
+        $path = 'storage/usersPictures/'.$id;
+        mkdir($path);
+        for($i = 0; $i < count($_FILES['picture']['tmp_name']); $i++) {
+            $fullType = $_FILES['picture']['type'][$i];
+            $arrType = explode("/", $fullType);
+            if (!file_exists($path.'/'.$this->rename($i)) && $arrType[0] === 'image') {
+                move_uploaded_file($_FILES['picture']['tmp_name'][$i], $path . '/' . $this->rename($i));//добавление в папку
+            }
+            $dataUsersPicture = [
+                'users_id' => $user->id,
+                'picture' => $path.'/'.$this->rename($i),
+                'file_name' => $i
+            ];
+            UsersPicture::create($dataUsersPicture);
+        }
+    }
+
+    public function rename($number) {
+        $fullType = $_FILES['picture']['type'][$number];
+        $arrType = explode("/", $fullType);
+        return $number.'.'.$arrType[1];
+    }
     /**
      * Display the specified resource.
      *
@@ -95,13 +117,6 @@ class UserController extends Controller
 //     * @param  int  $id
 //     * @return \Illuminate\Http\Response
      */
-//    public function update(Request $request, Product $product)
-//    {
-////        $product->fill($request->all());
-////        $product->save();
-////        return  redirect(route('admin.product.index'));
-//        dump('update');
-//    }
 
     /**
      * Remove the specified resource from storage.

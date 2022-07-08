@@ -15,8 +15,9 @@ class UsersPicture extends Model
     protected $fillable = [
         'users_id',
         'picture',
-        'created_at',
-        'updated_at',
+        'file_name'
+        //'created_at',
+        //'updated_at',
     ];
     use HasFactory;
 }

@@ -85,9 +85,9 @@
                         <li>
                             <a href="#0">Features</a>
                             <ul class="submenu">
-                                <li><a href="../members.html">All Members</a></li>
+                                <li><a href="{{route('membersPage')}}">All Members</a></li>
                                 <li><a href="../profile.html">Member Profile</a></li>
-                                <li><a href="{{route('loginPage')}}">Login</a></li>
+                                <li><a href="{{route('store')}}">Login</a></li>
                                 <li><a href="{{route('signupPage')}}">Sign Up</a></li>
                                 <li><a href="../pricing-plan.html">Pricing Plan</a></li>
                                 <li><a href="../404.html">404 Page</a></li>

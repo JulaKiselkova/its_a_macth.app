@@ -71,7 +71,7 @@
                                 <li><a href="members.html" class="active">All Members</a></li>
                                 <li><a href="profile.html">Member Profile</a></li>
                                 <li><a href="login.html">Login</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
+                                <li><a href="{{route('signupPage')}}">Sign Up</a></li>
                                 <li><a href="pricing-plan.html">Pricing Plan</a></li>
                                 <li><a href="404.html">404 Page</a></li>
 
@@ -90,7 +90,7 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                     <a href="login.html" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
-                    <a href="signup.html" class="signup"><i class="icofont-users"></i> <span>SIGN UP</span> </a>
+                    <a href="{{route('signupPage')}}" class="signup"><i class="icofont-users"></i> <span>SIGN UP</span> </a>
 
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">
@@ -219,280 +219,29 @@
             <ul class="member-info mb-4">
                 <li class="all-member">
                     <p>All Members </p>
-                    <p>20 365 587</p>
-                </li>
-                <li class="member-cat">
-                    <div class="custom-select right w-100">
-                        <select name="member" id="member-cat" class="">
-                            <option value="0">Newest Registerd</option>
-                            <option value="1">Oldest</option>
-                            <option value="2">Popular</option>
-                            <option value="3">Most Active</option>
-                        </select>
-                    </div>
+                    <p>{{$numberOfUsers}}</p>
                 </li>
             </ul>
             <div class="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-center">
+            @foreach($users as $user)
                 <div class="col">
                     <div class="lab-item member-item style-1 style-2">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="assets/images/member/01.jpg" alt="member-img">
+                                <img src="storage/usersPictures/150/1.jpeg" alt="member-img">
+{{--                                <img src="storage/usersPictures/135/0.jpeg" alt="member-img">--}}
+{{--                                <img src="assets/images/0.jpeg" alt="member-img">--}}
+{{--                                <img src="assets/images/member/01.jpg" alt="member-img">--}}
                             </div>
                             <div class="lab-content">
-                                <h6><a href="profile.html">Tenma Shyna</a> </h6>
+                                <h6><a href="/">{{$user->name}}</a> </h6>
                                 <p>Active 1 Day</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/02.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Maya Statham</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/03.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Cristina Maria</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/04.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Gaurav-Singh</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/05.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Gihan-Fernando</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/06.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/07.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Sweet Admin</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/08.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Gyan-Baffour</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/09.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Zeahra Maria</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/10.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/11.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/12.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/13.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/14.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/15.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/16.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/17.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/18.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/19.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/20.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            @endforeach
+                {!! $users->render() !!}
             </div>
             <div class="paginations">
                 <ul class="lab-ul d-flex flex-wrap justify-content-center mb-1">

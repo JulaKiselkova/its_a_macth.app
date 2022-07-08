@@ -17,17 +17,9 @@ Route::post('/signup', [\App\Http\Controllers\UserController::class, 'create'])
     ->name('create');
 Route::post('/signup', [\App\Http\Controllers\UserController::class, 'store'])
     ->name('store');
-//Route::post('/signup', function () {
-//    Route::resources([
-//        'user'=> \App\Http\Controllers\UserController::class,
-//    ]);
-//    return view('turulav.signup');
-//});
-//Route::get('//login', function () {
-//    return view('turulav.main');
-//});
+
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'mainPage'])->name('mainPage');
 Route::get('/login', [\App\Http\Controllers\SiteController::class, 'loginPage'])->name('loginPage');
 Route::get('/signup', [\App\Http\Controllers\SiteController::class, 'signupPage'])->name('signupPage');
-Route::get('/members', [\App\Http\Controllers\SiteController::class, 'membersPage']);
+Route::get('/members', [\App\Http\Controllers\SiteController::class, 'membersPage'])->name('membersPage');
 Route::get('/success', [\App\Http\Controllers\SiteController::class, 'successPage'])->name('successPage');
