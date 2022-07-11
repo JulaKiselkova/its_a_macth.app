@@ -5,7 +5,7 @@
         <div class=" container">
             <div class="account-wrapper">
                 <h3 class="title">Login</h3>
-                <form action="\" class="account-form">
+                <form action="{{route('login')}}" class="account-form">
                     @csrf
                     <div class="form-group">
                         <input type="text" placeholder="Email" name="email">

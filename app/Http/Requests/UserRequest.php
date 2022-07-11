@@ -25,8 +25,10 @@ class UserRequest extends FormRequest
     {
         return [
             'password'=>'min:5',
-            'email'=>'unique:users',
+            'email'=>'email|unique:users',
             'picture'=> 'required',
+            'name'=> 'required',
+            'age'=> 'required',
         ];
     }
 
@@ -36,6 +38,8 @@ class UserRequest extends FormRequest
             'password.min'=> 'Пароль не может быть менее 5 символов',
             'email.unique'=>'Обязательно нужно заполнить и email должен быть уникальным',
             'picture.required'=>'Хотя бы одно фото обязательно',
+            'name.required' => 'Имя обязательно',
+            'age.required' => 'Возраст обязателен'
         ];
     }
 }

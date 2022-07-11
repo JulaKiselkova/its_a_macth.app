@@ -131,7 +131,7 @@
     <div class="container">
         <div class="member-filter">
             <div class="member-filter-inner">
-                <form action="/" class="filter-form">
+                <form action="{{route('signupPage')}}" class="filter-form">
                     <div class="gender">
                         <div class="custom-select right w-100">
                             <select name="gender" id="gender" class="">
@@ -211,7 +211,8 @@
                             </select>
                         </div>
                     </div>
-                    <button class="lab-btn" type="submit">Search now <i class="icofont-search-2"></i></button>
+                    <input type="text" placeholder="findByLogin" name="findByLogin">
+{{--                    <button class="lab-btn" type="submit">Search now <i class="icofont-search-2"></i></button>--}}
                 </form>
             </div>
         </div>
@@ -228,13 +229,15 @@
                     <div class="lab-item member-item style-1 style-2">
                         <div class="lab-inner">
                             <div class="lab-thumb">
+{{--                                <img src="storage/usersPictures/150/1.jpeg" alt="member-img">--}}
+{{--                                <img src="{{user}}" alt="member-img">--}}
                                 <img src="storage/usersPictures/150/1.jpeg" alt="member-img">
-{{--                                <img src="storage/usersPictures/135/0.jpeg" alt="member-img">--}}
-{{--                                <img src="assets/images/0.jpeg" alt="member-img">--}}
 {{--                                <img src="assets/images/member/01.jpg" alt="member-img">--}}
                             </div>
                             <div class="lab-content">
-                                <h6><a href="/">{{$user->name}}</a> </h6>
+{{--                                {{route('admin.product.show', ['product' => $product->id]) }}--}}
+                                <h6><a href="{{route('profile', ['user' => $user->id])}}">{{$user->name}}</a> </h6>
+{{--                                <h6><a href="{{route("profilePage")}}">{{$user->name}}</a> </h6>--}}
                                 <p>Active 1 Day</p>
                             </div>
                         </div>

@@ -86,7 +86,7 @@
                             <a href="#0">Features</a>
                             <ul class="submenu">
                                 <li><a href="{{route('membersPage')}}">All Members</a></li>
-                                <li><a href="../profile.html">Member Profile</a></li>
+                                <li><a href="{{route('store')}}">Member Profile</a></li>
                                 <li><a href="{{route('store')}}">Login</a></li>
                                 <li><a href="{{route('signupPage')}}">Sign Up</a></li>
                                 <li><a href="../pricing-plan.html">Pricing Plan</a></li>
@@ -106,8 +106,18 @@
                         </li>
                         <li><a href="../contact.html">Contact</a></li>
                     </ul>
-                    <a href="{{route('loginPage')}}" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
+
                     <a href="{{route('signupPage')}}" class="signup"><i class="icofont-users"></i> <span>SIGN UP</span> </a>
+                    @guest("web")
+                        <a href="{{route('loginPage')}}" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
+                    @endguest
+                    @auth("web")
+                        <a href="{{route('logout')}}" class="login"><i class="icofont-user"></i> <span>LOG OUT</span> </a>
+                    @endauth
+{{--                    <a href="{{route('logout')}}" class="login"><i class="icofont-user"></i> <span>LOG OUT</span> </a>--}}
+{{--                    @guest("web")--}}
+{{--                        <a href="{{route('loginPage')}}" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>--}}
+{{--                    @endguest--}}
 
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">

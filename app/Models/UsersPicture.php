@@ -16,8 +16,6 @@ class UsersPicture extends Model
         'users_id',
         'picture',
         'file_name'
-        //'created_at',
-        //'updated_at',
     ];
     use HasFactory;
 }

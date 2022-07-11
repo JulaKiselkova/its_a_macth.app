@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Product;
 //use Illuminate\Http\Request;
-//NEW COMMMENT
 
 class UserController extends Controller
 {
@@ -20,10 +19,6 @@ class UserController extends Controller
      //* @return \Illuminate\Http\Response
      * ertyuioklp[sdfrgtyuio
      */
-    public function create()
-    {
-        dump("The user is create");
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -31,6 +26,8 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(UserRequest $request)
     {
         $email = $request->input('email');
@@ -59,6 +56,8 @@ class UserController extends Controller
             $id = $user->id;
             $this->addFiles($id, $user);
             return redirect(route('successPage'));
+        } else {
+            return redirect(route('mistakePage'));
         }
     }
 
@@ -91,13 +90,18 @@ class UserController extends Controller
 //     * @param  int  $id
 //     * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function  profile(User $user)
     {
-        dump('show');
+        return view('turulav.profile', ['user' => $user]);
     }
 
     public function logIn() {
         dd('hello');
+    }
+
+    public function logout() {
+        auth('web')->logout();
+        return(redirect(route('mainPage')));
     }
 
     /**
