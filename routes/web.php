@@ -27,8 +27,14 @@ Route::get('/members', [\App\Http\Controllers\SiteController::class, 'membersPag
 Route::get('/success', [\App\Http\Controllers\SiteController::class, 'successPage'])->name('successPage');
 Route::get('/mistake', [\App\Http\Controllers\SiteController::class, 'mistakePage'])->name('mistakePage');
 Route::get('/profile', [\App\Http\Controllers\SiteController::class, 'profilePage'])->name('profilePage');
+Route::get('/myPage', [\App\Http\Controllers\SiteController::class, 'certainUserPage'])->name('certainUserPage');
+Route::get('/myPage', [\App\Http\Controllers\SiteController::class, 'myPage'])->name('myPage');
+Route::get('/edit', [\App\Http\Controllers\UserController::class, 'edit'])->name('edit');
+Route::put('/editForm', [\App\Http\Controllers\UserController::class, 'update'])->name('update');
 //Route::get('/profile/{id}', function ($id) {
 //    dump($id);
 //});
 Route::get('/profile/{user}',[\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+Route::delete('/destroy',[\App\Http\Controllers\UserController::class, 'destroy'])->name('destroy');
+Route::get('/test',[\App\Http\Controllers\UserPicController::class, 'getAllUserPic'])->name('getAllUserPic');
 

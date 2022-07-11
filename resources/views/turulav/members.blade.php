@@ -211,6 +211,7 @@
                             </select>
                         </div>
                     </div>
+
                     <input type="text" placeholder="findByLogin" name="findByLogin">
 {{--                    <button class="lab-btn" type="submit">Search now <i class="icofont-search-2"></i></button>--}}
                 </form>
@@ -231,7 +232,7 @@
                             <div class="lab-thumb">
 {{--                                <img src="storage/usersPictures/150/1.jpeg" alt="member-img">--}}
 {{--                                <img src="{{user}}" alt="member-img">--}}
-                                <img src="storage/usersPictures/150/1.jpeg" alt="member-img">
+                                <img src="storage/usersPictures/{{$user->id}}/0.jpeg" alt="member-img">
 {{--                                <img src="assets/images/member/01.jpg" alt="member-img">--}}
                             </div>
                             <div class="lab-content">

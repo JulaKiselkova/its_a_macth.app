@@ -58,7 +58,9 @@ class SiteController extends Controller
             //dump($user);
             //$userInfo = ["id" => $user->id, "name" => $user->name, "email" => $user->email, "gender" => $user->gender, "age" => $user->age, "zodiac" => $user->zodiac, "description" => $user->description, "status" => $user->status, "looking_for" => $user->looking_for];
             //dump($userInfo);
-            return redirect(route("mainPage"));
+            //return redirect(route("mainPage"));
+            return view('turulav.profile', ['user' => $user, 'id' => $user->id]);
+            //return redirect(route("myPage"));
 //            var_dump("pk");
         } else {
             dump("Пользователь не найден, либо данные введены не правильно");
@@ -73,9 +75,20 @@ class SiteController extends Controller
         return(redirect(route('mainPage')));
     }
 
+    public function certainUserPage() {
+        $user = Auth::user();
+        //$id = $user->id;
+        return view('turulav.profile', ['user' => $user, 'id' => $user->id]);
+    }
+
     public function mistakePage(){
         return  view('turulav.mistake');
     }
+
+//    public function myPage(){
+//        $user = Auth::user();
+//        return view('turulav.profile', ['user' => $user->id]);
+//    }
 //    public function profilePage(){
 ////        return view('turulav.profile', ['product' => $product]);
 //        return  view('turulav.profile');

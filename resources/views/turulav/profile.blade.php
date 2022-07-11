@@ -11,7 +11,8 @@
                     </div>
                     <ol class="breadcrumb">
                         <li><a href="index2.html">Home</a></li>
-                        <li class="active">{{$user->name}}</li>
+                        <li class="active">{{$user->name}}{{$id}}</li>
+
                     </ol>
                 </div>
             </div>
@@ -27,7 +28,7 @@
                 <div class="member-profile">
                     <div class="profile-item">
                         <div class="profile-cover">
-                            <img src="assets/images/profile/cover.jpg" alt="cover-pic">
+                            <img src="../storage/usersPictures/{{$id}}/0.jpeg" alt="member-img">
                             <div class="edit-photo custom-upload">
                                 <div class="file-btn"><i class="icofont-camera"></i>
                                     Edit Photo</div>
@@ -36,7 +37,7 @@
                         </div>
                         <div class="profile-information">
                             <div class="profile-pic">
-                                <img src="assets/images/profile/Profile.jpg" alt="DP">
+                                <img src="../storage/usersPictures/{{$user->id}}/0.jpeg" alt="member-img">
                                 <div class="custom-upload">
                                     <div class="file-btn">
                                         <span class="d-none d-lg-inline-block"> <i class="icofont-camera"></i>
@@ -100,16 +101,15 @@
                                         type="button" role="tab" aria-controls="media" aria-selected="false">Media <span
                                         class="item-number">35</span></button>
                                 <div class="dropdown">
-                                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-bs-toggle="dropdown" aria-expanded="false">
-                                        More
-                                    </a>
+                                    @if($id == $user->id)
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Activity</a></li>
-                                        <li><a class="dropdown-item" href="#">Privacy</a></li>
-                                        <li><a class="dropdown-item" href="#">Block user</a></li>
-                                    </ul>
+                                            <form action="{{route('destroy', compact('user')) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit">DELETE</button>
+                                            </form>
+                                    @endif
+
                                 </div>
 
                             </div>
@@ -1125,9 +1125,12 @@
                                                 <div class="info-card mb-20">
                                                     <div class="info-card-title">
                                                         <h6>About me</h6>
+                                                        @if($id == $user->id)
+{{--                                                            @method('PUT')--}}
+                                                            <a href="{{route('edit', ['user' => $user, 'id' => $id]) }}">Edit</a>
+                                                        @endif
                                                     </div>
                                                     <div class="info-card-content">
-                                                        <p>{{$user->description}}</p>
                                                         <p>{{$user->description}}</p>
                                                     </div>
                                                 </div>
@@ -1224,114 +1227,6 @@
                                                         <div class="widget-title">
                                                             <h5>Filter Search Member</h5>
                                                         </div>
-                                                        <div class="widget-content">
-                                                            <p>Serious Dating With TuruLav Your Perfect
-                                                                Match is Just a Click Away.</p>
-                                                            <form action="/" class="banner-form">
-                                                                <div class="gender">
-                                                                    <div class="custom-select right w-100">
-                                                                        <select class="">
-                                                                            <option value="0">I am a </option>
-                                                                            <option value="1">Male</option>
-                                                                            <option value="2">Female</option>
-                                                                            <option value="3">Others</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="person">
-                                                                    <div class="custom-select right w-100">
-                                                                        <select class="">
-                                                                            <option value="0">Looking for</option>
-                                                                            <option value="1">Male</option>
-                                                                            <option value="2">Female</option>
-                                                                            <option value="3">Others</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="age">
-                                                                    <div
-                                                                        class="right d-flex justify-content-between w-100">
-                                                                        <div class="custom-select">
-                                                                            <select>
-                                                                                <option value="1">18</option>
-                                                                                <option value="2">19</option>
-                                                                                <option value="3">20</option>
-                                                                                <option value="4">21</option>
-                                                                                <option value="5">22</option>
-                                                                                <option value="6">23</option>
-                                                                                <option value="7">24</option>
-                                                                                <option value="8">25</option>
-                                                                                <option value="9">26</option>
-                                                                                <option value="10">27</option>
-                                                                                <option value="11">28</option>
-                                                                                <option value="13">29</option>
-                                                                                <option value="14">30</option>
-                                                                            </select>
-                                                                        </div>
-
-                                                                        <div class="custom-select">
-                                                                            <select>
-                                                                                <option value="1">36</option>
-                                                                                <option value="2">19</option>
-                                                                                <option value="3">20</option>
-                                                                                <option value="4">21</option>
-                                                                                <option value="5">22</option>
-                                                                                <option value="6">23</option>
-                                                                                <option value="7">24</option>
-                                                                                <option value="8">25</option>
-                                                                                <option value="9">26</option>
-                                                                                <option value="10">27</option>
-                                                                                <option value="11">28</option>
-                                                                                <option value="13">29</option>
-                                                                                <option value="14">30</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="city">
-                                                                    <div class="custom-select right w-100">
-                                                                        <select class="">
-                                                                            <option value="0">Choose Your Country
-                                                                            </option>
-                                                                            <option value="1">USA</option>
-                                                                            <option value="2">UK</option>
-                                                                            <option value="3">Spain</option>
-                                                                            <option value="4">Brazil</option>
-                                                                            <option value="5">France</option>
-                                                                            <option value="6">Newzeland</option>
-                                                                            <option value="7">Australia</option>
-                                                                            <option value="8">Bangladesh</option>
-                                                                            <option value="9">Turki</option>
-                                                                            <option value="10">Chine</option>
-                                                                            <option value="11">India</option>
-                                                                            <option value="12">Canada</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="interest">
-                                                                    <div class="custom-select right w-100">
-                                                                        <select class="">
-                                                                            <option value="0">Your Interests
-                                                                            </option>
-                                                                            <option value="1">Gaming</option>
-                                                                            <option value="2">Fishing</option>
-                                                                            <option value="3">Skydriving</option>
-                                                                            <option value="4">Swimming</option>
-                                                                            <option value="5">Racing</option>
-                                                                            <option value="6">Hangout</option>
-                                                                            <option value="7">Tranvelling</option>
-                                                                            <option value="8">Camping</option>
-                                                                            <option value="9">Touring</option>
-                                                                            <option value="10">Acting</option>
-                                                                            <option value="11">Dancing</option>
-                                                                            <option value="12">Singing</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <button class="">Find Your Partner</button>
-
-                                                            </form>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="widget like-member">
@@ -1344,8 +1239,7 @@
                                                                 <div class="col">
                                                                     <div class="image-thumb">
                                                                         <a href="#">
-                                                                            <img src="assets/images/widget/01.jpg"
-                                                                                 alt="img">
+                                                                            <img src="storage/usersPictures/{{$user->id}}/0.jpeg" alt="member-img">
                                                                         </a>
                                                                     </div>
                                                                 </div>

@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Product;
+//use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
+
 //use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -92,8 +94,14 @@ class UserController extends Controller
      */
     public function  profile(User $user)
     {
-        return view('turulav.profile', ['user' => $user]);
+        if (Auth::check()) {
+            $certainUser = Auth::user();
+            return view('turulav.profile', ['user' => $user, 'id' => $certainUser->id]);
+        } else {
+            return view('turulav.attention');
+        }
     }
+
 
     public function logIn() {
         dd('hello');
@@ -104,6 +112,16 @@ class UserController extends Controller
         return(redirect(route('mainPage')));
     }
 
+//    public function update(Request $request, User $user)
+//    {
+//        $user->fill($request->all());
+//        $user->save();
+//        dump('done');
+//        //return  redirect(route('admin.product.index'));
+//    }
+
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -112,8 +130,35 @@ class UserController extends Controller
      */
     public function edit()
     {
-        dump('edit');
+        $user = Auth::user();
+        return view('turulav.formDesc', ['user' => $user]);
+        //return view('turulav.formDesc', compact('user' ));
     }
+
+    public function update( Request $request)
+    {
+        $user = Auth::user();
+        $id = $user->id;
+        $request->validate([
+            'description' => 'required',
+        ]);
+        //$user->fill($request->all());
+        //$user->update($request->all());
+
+        $user = User::find($id);
+        $user->description = $request->get('description');
+        $user->save();
+
+        //$user->save();
+        //$user->update($request->all());
+        //$user->fill($request->all());
+        //$user->save();
+        return view('turulav.profile', ['user' => $user, 'id' => $user->id]);
+        //dump($id);
+        //return  redirect(route('admin.product.index'));
+    }
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -130,6 +175,10 @@ class UserController extends Controller
      */
     public function destroy()
     {
-        dump('destroy');
+        $user = Auth::user();
+        $id = $user->id;
+        $user::find($id)->delete();
+        auth('web')->logout();
+        return  redirect(route('successPage'));
     }
 }
