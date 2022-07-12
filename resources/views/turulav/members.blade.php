@@ -239,7 +239,6 @@
 {{--                                {{route('admin.product.show', ['product' => $product->id]) }}--}}
                                 <h6><a href="{{route('profile', ['user' => $user->id])}}">{{$user->name}}</a> </h6>
 {{--                                <h6><a href="{{route("profilePage")}}">{{$user->name}}</a> </h6>--}}
-                                <p>Active 1 Day</p>
                             </div>
                         </div>
                     </div>

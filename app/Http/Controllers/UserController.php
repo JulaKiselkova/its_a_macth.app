@@ -158,7 +158,6 @@ class UserController extends Controller
         //return  redirect(route('admin.product.index'));
     }
 
-
     /**
      * Update the specified resource in storage.
      *

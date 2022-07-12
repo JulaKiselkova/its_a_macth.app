@@ -37,4 +37,5 @@ Route::put('/editForm', [\App\Http\Controllers\UserController::class, 'update'])
 Route::get('/profile/{user}',[\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 Route::delete('/destroy',[\App\Http\Controllers\UserController::class, 'destroy'])->name('destroy');
 Route::get('/test',[\App\Http\Controllers\UserPicController::class, 'getAllUserPic'])->name('getAllUserPic');
+Route::post('/addFriend',[\App\Http\Controllers\FriendController::class, 'storeFriend'])->name('storeFriend');
 
