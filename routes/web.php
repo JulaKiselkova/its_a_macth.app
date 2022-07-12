@@ -38,4 +38,4 @@ Route::get('/profile/{user}',[\App\Http\Controllers\UserController::class, 'prof
 Route::delete('/destroy',[\App\Http\Controllers\UserController::class, 'destroy'])->name('destroy');
 Route::get('/test',[\App\Http\Controllers\UserPicController::class, 'getAllUserPic'])->name('getAllUserPic');
 Route::post('/addFriend',[\App\Http\Controllers\FriendController::class, 'storeFriend'])->name('storeFriend');
-
+Route::get('/test2',[\App\Http\Controllers\FriendController::class, 'getFriend'])->name('getFriend');
